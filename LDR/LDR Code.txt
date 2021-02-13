@@ -1,0 +1,22 @@
+ledpin =13;
+ldrpin = A0;
+
+void setup(){
+Serial.begin(9600);
+pinMode(ledpin,OUTPUT);
+pinMode(ldr,INPUT);
+}
+
+void loop(){
+int ldrstatus = analogRead(ldrpin);
+if(ldrstatus <=200){
+digitalWrite(ledpin,HIGH);
+Serial.print("It is dark,turn on the lights");
+Serial.println(ldrstatus);
+}
+else{
+digitalWrite(ledpin,LOW);
+Serial.println("It is briht,turn off the lights");
+Serial.println(ldrstatus);
+}
+}
